@@ -22,4 +22,12 @@ export class OrderListComponent implements OnInit {
     })
   }
 
+  markCompleted(data:any){
+    console.log("update test:",data);
+    this.ordService.updateCoffeeOrder(data);
+  }
+
+  deleteOrder(data:any){
+    this.ordService.deleteCoffeeOrder(data);
+  }
 }

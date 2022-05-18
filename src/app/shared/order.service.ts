@@ -29,4 +29,21 @@ export class OrderService {
   getCoffeeOrders(){
     return this.firestore.collection("coffeeOrders").snapshotChanges();
   }
+
+  //handling function for update coffee orders.This function will connect and call your 
+  //Firestore database based the selected collection and document id.
+  updateCoffeeOrder(data:any){
+    return this.firestore
+              .collection("coffeeOrders")
+              .doc(data.payload.doc.id)
+              .set({completed: false},{merge:true}) 
+
+  }
+
+  deleteCoffeeOrder(data:any){
+    return this.firestore
+              .collection("coffeeOrders")
+              .doc(data.payload.doc.id)
+              .delete();
+  }
 }

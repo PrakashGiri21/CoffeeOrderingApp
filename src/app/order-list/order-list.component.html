@@ -14,8 +14,8 @@
                 <div *ngFor="let coffee of order.payload.doc.data().coffeeOrder">{{coffee}}</div>
             </td>
 
-            <td><i class="material-icons">check</i></td>
-            <td><i class="material-icons">delete_forever</i></td>
+            <td><i class="material-icons" *ngIf="order.payload.doc.data().completed" (click)="markCompleted(order)">check</i></td>
+            <td><i class="material-icons" (click)="deleteOrder(order)">delete_forever</i></td>
         </tr>
     </tbody>
 </table>
